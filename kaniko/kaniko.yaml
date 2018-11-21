@@ -19,7 +19,7 @@ spec:
 
   steps:
   - name: build-and-push
-    image: gcr.io/kaniko-project/executor
+    image: gcr.io/kaniko-project/executor:v0.6.0
     args:
     - --context=/workspace/${DIRECTORY}
     - --dockerfile=/workspace/${DIRECTORY}/${DOCKERFILE}
