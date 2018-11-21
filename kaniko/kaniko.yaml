@@ -6,19 +6,22 @@ spec:
   parameters:
   - name: IMAGE
     description: The URI of the image to push, including registry host
-    default: null
+    default: ""
   - name: TAG
     description: Tag of the image being pushed
     default: latest
   - name: DIRECTORY
     description: The subdirectory of the workspace/repo
     default: ""
+  - name: DOCKERFILE
+    description: File name to build docker image
+    default: Dockerfile
 
   steps:
   - name: build-and-push
     image: gcr.io/kaniko-project/executor
     args:
     - --context=/workspace/${DIRECTORY}
-    - --dockerfile=/workspace/${DIRECTORY}/Dockerfile
+    - --dockerfile=/workspace/${DIRECTORY}/${DOCKERFILE}
     - --destination=${IMAGE}:${TAG}
 
