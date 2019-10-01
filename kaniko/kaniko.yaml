@@ -7,9 +7,6 @@ spec:
   - name: IMAGE
     description: The URI of the image to push, including registry host
     default: ""
-  - name: TAG
-    description: Tag of the image being pushed
-    default: latest
   - name: DIRECTORY
     description: The subdirectory of the workspace/repo
     default: ""
@@ -23,5 +20,5 @@ spec:
     args:
     - --context=/workspace/${DIRECTORY}
     - --dockerfile=/workspace/${DIRECTORY}/${DOCKERFILE}
-    - --destination=${IMAGE}:${TAG}
+    - --destination=${IMAGE}
 
